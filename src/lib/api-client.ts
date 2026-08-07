@@ -20,11 +20,13 @@ export async function apiFetch<TResponse>(
   path: string,
   options: RequestInit = {},
 ): Promise<TResponse> {
+  const token = localStorage.getItem("token");
   const res = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...options.headers,
     },
   });

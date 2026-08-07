@@ -1,20 +1,23 @@
 import { useMutation } from "@tanstack/react-query";
 import { loginUser, registerUser } from "./api";
+import { useAuthContext } from "./AuthContext";
 
 export function useLogin() {
+  const { setAuth } = useAuthContext();
   return useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      localStorage.setItem("token", data.token);
+      setAuth(data.token, data.user);
     },
   });
 }
 
 export function useRegister() {
+  const { setAuth } = useAuthContext();
   return useMutation({
     mutationFn: registerUser,
     onSuccess: (data) => {
-      localStorage.setItem("token", data.token);
+      setAuth(data.token, data.user);
     },
   });
 }

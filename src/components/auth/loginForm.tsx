@@ -1,15 +1,20 @@
 import { useState, type FormEvent } from "react";
 import { useLogin } from "../../features/auth/useAuth";
 import { ApiError } from "../../lib/api-client";
+import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = useLogin();
+  const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    login.mutate({ email, password });
+    login.mutate(
+      { email, password },
+      { onSuccess: () => navigate({ to: "/" }) },
+    );
   }
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
