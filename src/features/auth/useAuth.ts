@@ -7,7 +7,7 @@ export function useLogin() {
   return useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      setAuth(data.token, data.user);
+      setAuth(data.token, data.data);
     },
   });
 }
@@ -17,7 +17,7 @@ export function useRegister() {
   return useMutation({
     mutationFn: registerUser,
     onSuccess: (data) => {
-      setAuth(data.token, data.user);
+      setAuth(data.token, data.data);
     },
   });
 }
