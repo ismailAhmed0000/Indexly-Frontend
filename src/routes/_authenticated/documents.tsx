@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Folder, Clock, ShieldCheck, Plus } from "lucide-react";
 import { PageHeader } from "../../components/Layout/PageHeader";
+import { AddDocumentModal } from "../../components/documents/AddDocumentModal";
 import { Breadcrumb } from "../../components/Layout/Breadcrumb";
 import { StatCard } from "../../components/documents/statCard";
 import { DocumentsTable } from "../../components/documents/DocumentsTable";
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/_authenticated/documents")({
 
 function DocumentsPage() {
   const [page, setPage] = useState(1);
+  const [isAddOpen, setIsAddOpen] = useState(false);
   const { data, isPending, error } = useDocuments(page);
 
   return (
@@ -32,6 +34,7 @@ function DocumentsPage() {
           </div>
           <button
             type="button"
+            onClick={() => setIsAddOpen(true)}
             className="flex items-center gap-2 rounded-md bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700"
           >
             <Plus className="h-4 w-4" />
@@ -107,6 +110,8 @@ function DocumentsPage() {
           )}
         </div>
       </div>
+
+      <AddDocumentModal open={isAddOpen} onClose={() => setIsAddOpen(false)} />
     </>
   );
 }
