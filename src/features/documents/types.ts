@@ -1,18 +1,26 @@
 export interface DocumentItem {
   id: number;
-  name: string;
-  type: string;
+  uuid: string;
+  filename: string;
   status: string;
-  added_by: string;
-  created_at: string | null;
-  expiring_at: string | null;
-  expiry_status: "valid" | "expiring" | "expired";
+  processing_stage: string | null;
+  processing_version: number;
+  expired: boolean;
+  expiring_soon: boolean;
+  days_until_expiry: number | null;
+  expires_at: string | null;
+  created_by: number;
+}
+
+export interface DocumentsPagination {
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
 }
 
 export interface DocumentsResponse {
-  data: DocumentItem[];
-  current_page: number;
-  per_page: number;
-  total: number;
-  last_page: number;
+  message: string;
+  documents: DocumentItem[];
+  pagination: DocumentsPagination;
 }
