@@ -6,23 +6,21 @@ import { useSendMessage } from "../../features/conversations/useConversations";
 const quickActions = [
   {
     icon: Compass,
-    title: "Fleet Management",
+    title: "Document Management",
     description:
-      "Analyze real-time data for your entire fleet across global routes.",
+      "Organize, store, and retrieve all your documents in one place.",
   },
   {
     icon: ShieldCheck,
-    title: "Risk Assessment",
-    description:
-      "Generate insurance and safety risk reports for specific corridors.",
+    title: "Accurate",
+    description: "Get precise, up-to-date data you can rely on.",
   },
   {
     icon: BarChart3,
-    title: "Market Dynamics",
+    title: "Reliable",
     description: "Forecast freight rates and commodity flow trends.",
   },
 ];
-
 export function ChatDashboard() {
   const navigate = useNavigate();
   const sendMessage = useSendMessage();
