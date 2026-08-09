@@ -17,7 +17,7 @@ export function StatCard({
     <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5">
       <div
         className={`flex h-11 w-11 items-center justify-center rounded-lg ${
-          iconClassName ?? "bg-blue-50 text-blue-600"
+          iconClassName ?? "bg-teal-50 text-teal-600"
         }`}
       >
         <Icon className="h-5 w-5" />

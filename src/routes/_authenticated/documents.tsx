@@ -4,7 +4,7 @@ import { Folder, Clock, ShieldCheck, Plus } from "lucide-react";
 import { PageHeader } from "../../components/Layout/PageHeader";
 import { AddDocumentModal } from "../../components/documents/AddDocumentModal";
 import { Breadcrumb } from "../../components/Layout/Breadcrumb";
-import { StatCard } from "../../components/documents/statCard";
+import { StatCard } from "../../components/documents/StatCard";
 import { DocumentsTable } from "../../components/documents/DocumentsTable";
 import { useDocuments } from "../../features/documents/useDocuments";
 
@@ -45,7 +45,7 @@ function DocumentsPage() {
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <StatCard
             icon={Folder}
-            iconClassName="bg-blue-50 text-blue-600"
+            iconClassName="bg-teal-50 text-teal-600"
             label="Total Files"
             value={data?.pagination.total ?? 0}
           />
